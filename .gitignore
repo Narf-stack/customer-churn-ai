@@ -1,0 +1,16 @@
+.env
+.DS_Store
+
+src/customer_churn_ai/__pycache__/
+.venv/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+celerybeat-schedule.db
+celerybeat-schedule
+dump.rdb
+redis/dump.rdb
+*.pyc
+.ipynb_checkpoints/
+src/customer_churn_ai/model/*.pkl
