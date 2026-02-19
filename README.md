@@ -4,12 +4,15 @@
 0. Define the Business Problem First
 
 1. Data Layer (ML Foundations)\
+  first look and pre-analysis of the data\\
   Step 1 — Get or Generate Data
     notebook experimentation\
   Step 2 — Exploratory Data Analysis (EDA)
-    notebook experimentation\
+    notebook experimentation\\
+
+  get into the real code implementation for data cleaning, loading and pipeline creation\\
   Step 3 — Data Preparation
-    code inside ml/train.py\
+    inside ml/train.py\
 
 2. Build the ML Model\
   Step 4 — Baseline Model
@@ -52,5 +55,32 @@
 <br/>
 <br/>
 
-load env : 
-source /Users/frantz/Documents/customer-churn-ai/venv/bin/activate
+# Load env 
+
+I. source /Users/frantz/Documents/customer-churn-ai/venv/bin/activate
+ 
+II. Check poetry 
+
+```bash
+poetry env info
+# should see something like:
+
+Virtualenv
+Path: /Users/frantz/Library/Caches/pypoetry/virtualenvs/customer-churn-ai-xxxxx
+Executable: .../bin/python
+``` 
+
+Tell VS Code to use the Poetry interpreter
+In VS Code:
+
+- Press `Cmd + Shift + P`
+- Search: `Python: Select Interpreter`
+- Choose the interpreter that points to: `.../pypoetry/virtualenvs/customer-churn-ai-.../bin/python`
+
+If don’t see it in the list
+
+Run:
+```bash
+poetry env info --path
+``` 
+Enter interpreter path and paste the one fron the info `<that-path>/bin/python`
