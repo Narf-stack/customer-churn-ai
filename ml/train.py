@@ -2,5 +2,4 @@
 
 
 
-from training.data_loader import load_data
-from training.splitter import split_data
+from training import load_data, split_data, get_feature_types
