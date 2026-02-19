@@ -2,4 +2,4 @@
 
 
 
-from training import load_data, split_data, get_feature_types
+from training import *
