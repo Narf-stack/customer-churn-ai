@@ -14,18 +14,35 @@ def main():
 
   preprocessor = build_preprocessor(numerical, categorical)
 
-  # pipeline = build_pipeline(preprocessor)
-  # pipeline = build_random_forest_pipeline(preprocessor)
-  pipeline = build_gradient_boosting_pipeline(preprocessor)
+  logistic_model = build_pipeline(preprocessor)
+  rf_model = build_random_forest_pipeline(preprocessor)
+  gb_model = build_gradient_boosting_pipeline(preprocessor)
 
-  #train the model
-  model = pipeline.fit(X_train, y_train)
+  #train the models
+  logistic_model.fit(X_train, y_train)
+  rf_model.fit(X_train, y_train)
+  gb_model.fit(X_train, y_train)
 
-  #evaluate the model
-  evaluate_model(model, X_val, y_val)
+  #evaluate the models
+  evaluate_model("Logistic train", logistic_model, X_train, y_train)
+  evaluate_model("Logistic validation", logistic_model, X_val, y_val)
+  evaluate_model("RandomForest train", rf_model, X_train, y_train)
+  evaluate_model("RandomForest validation", rf_model, X_val, y_val)
+  evaluate_model("GradientBoosting train", gb_model, X_train, y_train)
+  evaluate_model("GradientBoosting validation", gb_model, X_val, y_val)
   
+  
+
+  models = {
+    "Logistic": logistic_model,
+    "RandomForest": rf_model,
+    "GradientBoosting": gb_model
+  }
+
+  compare_models(models, X_val, y_val)
+
   #save the model
-  save_model(model)
+  #save_model(model)
 
 if __name__ == "__main__":
   main()

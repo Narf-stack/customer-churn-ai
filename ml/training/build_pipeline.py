@@ -72,9 +72,12 @@ weighted avg       0.81      0.75      0.76      1055
 
 ROC-AUC: 0.8531292817273121
 Confusion Matrix:
-[[561 213]
-[ 53 228]]
-
+                     ---- Actual ----  
+                     missed | detetcted 
+                     -------|---------
+predict is not Churn | [[561    | 213]
+predict is Churn     | [ 53     | 228]]
+ 
 
 
 Interpretation:
@@ -156,7 +159,8 @@ Gradient Boosting: 0.53
 Logistic catches 81% of churners, while random Forest catches only 47%
 Random Forest misses more than half of churners, which is dangerous for churn prediction.
 
-
+the greater is AUC, the better the model is at distinguishing between classes.
+If ROC-AUC for train data is much higher than for validation data, it may indicate overfitting. 
 
 The goal is to minimize missed churners (retain customers)
 If goal = minimize marketing cost / false alarms -> Gradient Boosting
@@ -175,4 +179,59 @@ Logistic Regression achieves higher ROC-AUC (0.853 vs 0.820).
 Logistic Regression significantly outperforms Random Forest in recall for churners (0.81 vs 0.47).
 Random Forest achieves higher overall accuracy (0.79 vs 0.75) and better precision on churn.
 Given the business objective of minimizing missed churners, Logistic Regression is the preferred model.
+
+
+
+
+
+
+Model comparison and overfitting check for chosen model (Logistic Regression):
+Comparison of train vs validation performance for Logistic Regression:
+
+Classification Report Logistic train model:
+
+  precision    recall  f1-score   support
+
+0       0.92      0.73      0.81      3614
+1       0.52      0.81      0.64      1308
+
+    accuracy                           0.75      4922
+   macro avg       0.72      0.77      0.73      4922
+weighted avg       0.81      0.75      0.77      4922
+
+ROC-AUC: 0.8517810663254858
+Confusion Matrix:
+[[2649  965]
+[ 245 1063]]
+ 
+Classification Report Logistic validation model:
+
+  precision    recall  f1-score   support
+
+0       0.91      0.72      0.81       774
+1       0.52      0.81      0.63       281
+
+    accuracy                           0.75      1055
+   macro avg       0.72      0.77      0.72      1055
+weighted avg       0.81      0.75      0.76      1055
+
+ROC-AUC: 0.8531292817273121
+Confusion Matrix:
+[[561 213]
+[ 53 228]]
+
+
+The metrics are almost identical.
+
+That means:
+- No overfitting
+- Stable generalization
+- Model behavior is consistent
+- Preprocessing is correct (no leakage)
+
+
+Logistic regression is:
+
+Stable, robust, and well-calibrated.
+
 '''
