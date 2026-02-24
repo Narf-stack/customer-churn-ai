@@ -1,7 +1,7 @@
 from sklearn.pipeline import Pipeline
 from sklearn.linear_model import LogisticRegression
-
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import GradientBoostingClassifier
 
 def build_pipeline(preprocessor):
   model = LogisticRegression(
@@ -34,6 +34,24 @@ def build_random_forest_pipeline(preprocessor):
   ])
 
   return pipeline
+
+
+
+def build_gradient_boosting_pipeline(preprocessor):
+  model = GradientBoostingClassifier(
+    n_estimators=200,
+    learning_rate=0.1,
+    max_depth=3,
+    random_state=42
+  )
+
+  pipeline = Pipeline(steps=[
+    ("preprocessor", preprocessor),
+    ("classifier", model)
+  ])
+
+  return pipeline
+
 
 
 
@@ -95,22 +113,53 @@ But only 75 false positives
 This model is conservative
 
 
+3 - build_gradient_boosting_pipeline
+
+Classification Report:
+  precision    recall  f1-score   support
+
+0       0.84      0.91      0.88       774
+1       0.69      0.53      0.60       281
+
+    accuracy                           0.81      1055
+   macro avg       0.77      0.72      0.74      1055
+weighted avg       0.80      0.81      0.80      1055
+
+ROC-AUC: 0.8470210672478321
+Confusion Matrix:
+[[707  67]
+[133 148]]
 
 
-Direct comparaison of the two models :
+Interpretation:
+
+Best accuracy (0.81)
+Strong precision (0.69)
+Medium recall (0.53)
+ROC-AUC close to logistic (0.847)
+
+Much more balanced than Random Forest
+Still misses many churners
+
+
+
+
+
+Direct comparaison of the three models :
 
 Recall on Churners (class 1) :
 Logistic Regression: 0.81
 Random Forest: 0.47
+Gradient Boosting: 0.53
 
 -> HUGE difference.
 Logistic catches 81% of churners, while random Forest catches only 47%
-
 Random Forest misses more than half of churners, which is dangerous for churn prediction.
 
 
 
 The goal is to minimize missed churners (retain customers)
+If goal = minimize marketing cost / false alarms -> Gradient Boosting
 
 → Logistic Regression is better
 

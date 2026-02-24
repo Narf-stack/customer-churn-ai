@@ -14,8 +14,9 @@ def main():
 
   preprocessor = build_preprocessor(numerical, categorical)
 
-  pipeline = build_pipeline(preprocessor)
+  # pipeline = build_pipeline(preprocessor)
   # pipeline = build_random_forest_pipeline(preprocessor)
+  pipeline = build_gradient_boosting_pipeline(preprocessor)
 
   #train the model
   model = pipeline.fit(X_train, y_train)
