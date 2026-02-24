@@ -5,6 +5,7 @@ from .preprocessing import build_preprocessor
 from .build_pipeline import build_pipeline, build_random_forest_pipeline, build_gradient_boosting_pipeline
 from .model_saver import save_model
 from .evaluation import evaluate_model
+from .comparison import compare_models
 
 __all__ = [
   "load_data", 
@@ -15,5 +16,6 @@ __all__ = [
   "build_gradient_boosting_pipeline",
   "build_pipeline", 
   "save_model", 
-  "evaluate_model"
+  "evaluate_model",
+  "compare_models"
   ]
