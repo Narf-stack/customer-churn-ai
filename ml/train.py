@@ -25,11 +25,11 @@ def main():
 
   #evaluate the models
   evaluate_model("Logistic train", logistic_model, X_train, y_train)
-  evaluate_model("Logistic validation", logistic_model, X_val, y_val)
-  evaluate_model("RandomForest train", rf_model, X_train, y_train)
-  evaluate_model("RandomForest validation", rf_model, X_val, y_val)
-  evaluate_model("GradientBoosting train", gb_model, X_train, y_train)
-  evaluate_model("GradientBoosting validation", gb_model, X_val, y_val)
+  # evaluate_model("Logistic validation", logistic_model, X_val, y_val)
+  # evaluate_model("RandomForest train", rf_model, X_train, y_train)
+  # evaluate_model("RandomForest validation", rf_model, X_val, y_val)
+  # evaluate_model("GradientBoosting train", gb_model, X_train, y_train)
+  # evaluate_model("GradientBoosting validation", gb_model, X_val, y_val)
   
   
 
@@ -42,7 +42,7 @@ def main():
   compare_models(models, X_val, y_val)
 
   #save the model
-  #save_model(model)
+  save_model(logistic_model)
 
 if __name__ == "__main__":
   main()
