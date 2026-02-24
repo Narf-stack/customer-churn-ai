@@ -5,7 +5,7 @@
 from training import *
 
 
-if __name__ == "__main__":
+def main():
   df = load_data("../data/telco_customer_churn.csv")
 
   X_train, X_val, X_test, y_train, y_val, y_test = split_data(df)
@@ -16,6 +16,14 @@ if __name__ == "__main__":
 
   pipeline = build_pipeline(preprocessor)
 
-  pipeline.fit(X_train, y_train)
+  #train the model
+  model = pipeline.fit(X_train, y_train)
 
-  save_model(pipeline)
+  #evaluate the model
+  evaluate_model(model, X_val, y_val)
+  
+  #save the model
+  save_model(model)
+
+if __name__ == "__main__":
+  main()
