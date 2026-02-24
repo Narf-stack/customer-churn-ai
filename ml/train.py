@@ -6,7 +6,7 @@ from training import *
 
 
 def main():
-  df = load_data("../data/telco_customer_churn.csv")
+  df = load_data("ml/data/telco_customer_churn.csv")
 
   X_train, X_val, X_test, y_train, y_val, y_test = split_data(df)
 
@@ -15,6 +15,7 @@ def main():
   preprocessor = build_preprocessor(numerical, categorical)
 
   pipeline = build_pipeline(preprocessor)
+  # pipeline = build_random_forest_pipeline(preprocessor)
 
   #train the model
   model = pipeline.fit(X_train, y_train)
