@@ -84,3 +84,10 @@ Run:
 poetry env info --path
 ``` 
 Enter interpreter path and paste the one fron the info `<that-path>/bin/python`
+
+
+
+
+## Backend FAST API
+
+- see the [file](backend/README.md).
