@@ -1,0 +1,24 @@
+[project]
+name = "backend"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Narf-stack"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi (>=0.133.0,<0.134.0)",
+    "uvicorn (>=0.41.0,<0.42.0)",
+    "scikit-learn (>=1.8.0,<2.0.0)",
+    "joblib (>=1.5.3,<2.0.0)",
+    "pydantic (>=2.12.5,<3.0.0)",
+    "numpy (>=2.4.2,<3.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "backend", from = "src"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
