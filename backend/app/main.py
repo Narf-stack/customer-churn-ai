@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
-import json
 from pathlib import Path
 from backend.app.core import registry
 from backend.app.api.v1.endpoints import predict
