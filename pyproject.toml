@@ -3,7 +3,7 @@ name = "customer-churn-ai"
 version = "0.1.0"
 description = ""
 authors = [
-    {name = "Narf-stack",email = "fran.stacksta@gmail.com"}
+    {name = "Narf-stack"}
 ]
 readme = "README.md"
 requires-python = ">=3.12"
