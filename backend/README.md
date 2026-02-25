@@ -3,7 +3,7 @@
 
 
 ## Architectural tree
-
+```bash
 customer-churn-ai/
 │
 ├── backend/ ( inference logic )
@@ -31,6 +31,7 @@ customer-churn-ai/
     ├── model.pkl
     ├── preprocessor.pkl
     └── threshold.json
+``` 
 
 
 ## Set up
