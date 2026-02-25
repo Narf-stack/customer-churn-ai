@@ -6,6 +6,7 @@ from .build_pipeline import build_pipeline, build_random_forest_pipeline, build_
 from .model_saver import save_model
 from .evaluation import evaluate_model
 from .comparison import compare_models
+from .artifacts_saver import save_artifacts
 
 
 
@@ -20,5 +21,6 @@ __all__ = [
   "build_pipeline", 
   "save_model", 
   "evaluate_model",
-  "compare_models"
+  "compare_models",
+  "save_artifacts"
   ]
