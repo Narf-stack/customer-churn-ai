@@ -1,7 +1,4 @@
 # file for orchestration only
-
-
-
 from training import *
 
 
@@ -24,7 +21,7 @@ def main():
   gb_model.fit(X_train, y_train)
 
   #evaluate the models
-  evaluate_model("Logistic train", logistic_model, X_train, y_train)
+  best_threshold = evaluate_model("Logistic train", logistic_model, X_train, y_train)
   # evaluate_model("Logistic validation", logistic_model, X_val, y_val)
   # evaluate_model("RandomForest train", rf_model, X_train, y_train)
   # evaluate_model("RandomForest validation", rf_model, X_val, y_val)
@@ -43,6 +40,9 @@ def main():
 
   #save the model
   save_model(logistic_model)
+
+  # 5️⃣ Save artifacts
+  save_artifacts(preprocessor, best_threshold)
 
 if __name__ == "__main__":
   main()

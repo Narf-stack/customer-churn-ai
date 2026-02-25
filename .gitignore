@@ -13,4 +13,5 @@ dump.rdb
 redis/dump.rdb
 *.pyc
 .ipynb_checkpoints/
-src/customer_churn_ai/model/*.pkl
+src/customer_churn_ai/models/*.pkl
+src/customer_churn_ai/models/*.json

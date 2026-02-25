@@ -21,3 +21,5 @@ def evaluate_model(name,model, X_val, y_val):
 
   print("Confusion Matrix:")
   print(confusion_matrix(y_val, y_pred))
+
+  return best_threshold
