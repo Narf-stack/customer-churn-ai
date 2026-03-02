@@ -38,10 +38,22 @@ def main():
 
   compare_models(models, X_val, y_val)
 
+  #create metadata
+
+  metadata = build_metadata(
+    model=logistic_model,
+    X_train=X_train,
+    y_train=y_train,
+    threshold=best_threshold
+  )
+
   #save the model
   save_model(logistic_model)
 
-  # 5️⃣ Save artifacts
+  #save the metadata
+  save_metadata(metadata)
+
+  # Save artifacts
   save_artifacts(preprocessor, best_threshold)
 
 if __name__ == "__main__":

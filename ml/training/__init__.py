@@ -7,8 +7,8 @@ from .model_saver import save_model
 from .evaluation import evaluate_model
 from .comparison import compare_models
 from .artifacts_saver import save_artifacts
-
-
+from .build_metadata import build_metadata
+from .metadata_saver import save_metadata
 
 
 __all__ = [
@@ -22,5 +22,7 @@ __all__ = [
   "save_model", 
   "evaluate_model",
   "compare_models",
-  "save_artifacts"
+  "save_artifacts",
+  "build_metadata",
+  "save_metadata"
   ]
