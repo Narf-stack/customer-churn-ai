@@ -241,3 +241,28 @@ Std = 1
 ``` 
 
 This prevents one feature from dominating the prediction due to large magnitude.
+
+
+# Metadata 
+
+```bash
+Train model
+Evaluate model
+Compute metrics
+Create metadata
+Save model
+Save metadata
+``` 
+
+
+# Endpoints 
+Production ML APIs usually have:
+
+```bash
+/predict
+/model/metadata
+/model/health
+/model/feature-importance
+/model/explain   (SHAP)
+/metrics         (Prometheus monitoring)
+``` 
