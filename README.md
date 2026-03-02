@@ -87,6 +87,9 @@ Enter interpreter path and paste the one fron the info `<that-path>/bin/python`
 
 
 
+poetry run uvicorn backend.app.main:app --reload\n
+
+source $(poetry env info --path)/bin/activate
 
 ## Backend FAST API
 
